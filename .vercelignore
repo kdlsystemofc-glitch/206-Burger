@@ -1,0 +1,7 @@
+server.js
+*.ps1
+referencia/
+reports/
+test-results/
+docs/
+MANIFESTO.md
