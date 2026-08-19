@@ -1,0 +1,642 @@
+/* =======================================================
+   206 BURGER — CLIENT DESIGN SYSTEM & MOTION STYLES
+   Documento 07 & 08: KDL V2 Phase 04-08
+======================================================= */
+
+/* Ensure hero section does not clip absolutely positioned children */
+#hero {
+  position: relative;
+}
+
+:root {
+  /* Chromatic Design Tokens */
+  --color-brand-primary: #F91814;
+  --color-brand-secondary: #F4A804;
+  --color-brand-accent: #38BDF8;
+  --color-bg-primary: #F5E3CD;
+  --color-bg-secondary: #FAF0E4;
+  --color-surface-dark: #18191B;
+  --color-text-primary: #18191B;
+  --color-text-secondary: #4A4C52;
+  --color-sticker-white: #FFFFFF;
+  --color-border-subtle: rgba(24, 25, 27, 0.15);
+
+  /* Typography Families */
+  --font-display: 'Mouse Memoirs', sans-serif;
+  --font-badge: 'Modak', cursive, sans-serif;
+  --font-body: 'Plus Jakarta Sans', sans-serif;
+  --font-heading: 'Mouse Memoirs', sans-serif;
+
+  /* Motion Easings */
+  --ease-spring: cubic-bezier(0.34, 1.56, 0.64, 1);
+  --ease-smooth: cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* Base Reset & Smoothness */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+  font-family: var(--font-body);
+  background-color: var(--color-bg-primary);
+  color: var(--color-text-primary);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+  overflow-x: hidden;
+  background-color: var(--color-bg-primary);
+}
+
+/* Typography Token Utilities */
+.font-display { font-family: var(--font-display); }
+.font-badge { font-family: var(--font-badge); }
+.font-body { font-family: var(--font-body); }
+.font-heading { font-family: var(--font-heading); }
+
+/* Text Strokes & Die-Cut Sticker Graphic Outlines */
+.text-stroke-monumental {
+  -webkit-text-stroke: 0.22vw var(--color-sticker-white);
+  paint-order: stroke fill;
+  filter: drop-shadow(0 0.5vw 1.5vw rgba(249, 24, 20, 0.25));
+}
+
+.text-stroke-wordmark {
+  -webkit-text-stroke: 0.35vw var(--color-sticker-white);
+  paint-order: stroke fill;
+  filter: drop-shadow(0 0.6vw 1.2vw rgba(217, 136, 0, 0.4));
+}
+
+.text-stroke-badge {
+  -webkit-text-stroke: 0.18vw var(--color-sticker-white);
+  paint-order: stroke fill;
+}
+
+.text-stroke-logo {
+  -webkit-text-stroke: 0.14vw var(--color-sticker-white);
+  paint-order: stroke fill;
+}
+
+.text-stroke-heading {
+  -webkit-text-stroke: 0.12vw var(--color-sticker-white);
+  paint-order: stroke fill;
+  filter: drop-shadow(0 0.4vw 1vw rgba(249, 24, 20, 0.2));
+}
+
+.text-stroke-small {
+  -webkit-text-stroke: 0.1vw var(--color-sticker-white);
+  paint-order: stroke fill;
+}
+
+.text-stroke-white {
+  -webkit-text-stroke: 0.18vw var(--color-sticker-white);
+  paint-order: stroke fill;
+  filter: drop-shadow(0 0.4vw 1vw rgba(24, 25, 27, 0.2));
+}
+
+/* Realistic Ambient Contact Shadow for Isolated Product Cutout */
+.drop-shadow-burger {
+  filter: drop-shadow(0 2vw 3vw rgba(24, 25, 27, 0.25)) drop-shadow(0 0.5vw 1vw rgba(249, 24, 20, 0.1));
+}
+
+/* Floating animation */
+@keyframes floatAnim {
+  0%, 100% {
+    transform: translateY(0px) rotate(0deg);
+  }
+  50% {
+    transform: translateY(-8px) rotate(0.4deg);
+  }
+}
+
+.animate-float {
+  animation: floatAnim 4.2s ease-in-out infinite;
+  will-change: transform;
+}
+
+/* Hero Entrance Animations */
+@keyframes popSpringIn {
+  0% {
+    opacity: 0;
+    transform: scale(0.6) translateY(20px);
+  }
+  70% {
+    transform: scale(1.06) translateY(-4px);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1) translateY(0);
+  }
+}
+
+@keyframes badgePopLeft {
+  0% {
+    opacity: 0;
+    transform: scale(0) rotate(0deg);
+  }
+  75% {
+    transform: scale(1.1) rotate(18deg);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1) rotate(15deg);
+  }
+}
+
+@keyframes badgePopRight {
+  0% {
+    opacity: 0;
+    transform: scale(0) rotate(0deg);
+  }
+  75% {
+    transform: scale(1.1) rotate(-18deg);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1) rotate(-15deg);
+  }
+}
+
+.animate-pop-title {
+  animation: popSpringIn 0.8s var(--ease-spring) forwards;
+}
+
+.animate-badge-left {
+  animation: badgePopLeft 0.7s var(--ease-spring) 0.2s both;
+}
+
+.animate-badge-right {
+  animation: badgePopRight 0.7s var(--ease-spring) 0.3s both;
+}
+
+.animate-wordmark {
+  animation: popSpringIn 0.8s var(--ease-spring) 0.4s both;
+}
+
+/* Smooth Interactive States */
+.reveal-fade-up {
+  opacity: 1;
+  transform: translateY(0);
+  transition: opacity 0.6s var(--ease-smooth), transform 0.6s var(--ease-smooth);
+}
+
+.reveal-stagger-1 { transition-delay: 0.1s; }
+.reveal-stagger-2 { transition-delay: 0.2s; }
+.reveal-stagger-3 { transition-delay: 0.3s; }
+.reveal-stagger-4 { transition-delay: 0.4s; }
+
+/* Scrolled Header */
+#main-header.scrolled {
+  background-color: rgba(245, 227, 205, 0.95);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+}
+
+/* Drawer active state */
+#menu-drawer.active {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+/* Reduced Motion Support */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* =======================================================
+   RESPONSIVE SYSTEM — INTENTIONAL COMPOSITION PER BREAKPOINT
+   Phase 07: Each viewport is designed, not compressed.
+======================================================= */
+
+/* -------------------------------------------------------
+   HERO — Semantic layout classes
+------------------------------------------------------- */
+#hero {
+  height: 100svh;
+}
+
+.hero-title {
+  font-size: 30vw;
+  line-height: 0.8;
+}
+
+/* Burger cutout: centered, overlapping headline baseline */
+.burger-float-wrap {
+  width: 40vw;
+  height: 40vw;
+  position: absolute;
+  top: 60%;
+  left: 50%;
+  transform: translate(-50%, -60%);
+  z-index: 20;
+}
+
+.hero-206-wordmark {
+  font-size: 15vw;
+  margin-top: 15vw;
+  transform: translateY(-9vw);
+}
+
+.hero-footnotes {
+  display: flex;
+}
+
+.hero-footnote-block {
+  width: 23vw;
+}
+
+.hero-footnote-block p {
+  font-family: var(--font-body);
+  font-size: 1.1vw;
+  font-weight: 600;
+  line-height: 1.3;
+  color: rgba(24, 25, 27, 0.85);
+}
+
+/* -------------------------------------------------------
+   INGREDIENTS GRID — 4 col desktop
+------------------------------------------------------- */
+.ingredients-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 2vw;
+}
+
+/* -------------------------------------------------------
+   CTA SECTION — Desktop
+------------------------------------------------------- */
+.cta-section {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  max-width: 1300px;
+  margin: 0 auto;
+  padding-top: 8vw;
+  padding-bottom: 8vw;
+  padding-left: 6vw;
+  padding-right: 6vw;
+}
+
+.cta-left {
+  width: 45vw;
+  text-align: left;
+}
+
+.cta-right {
+  width: 40vw;
+}
+
+.cta-buttons {
+  display: flex;
+  align-items: center;
+  gap: 1.5vw;
+}
+
+.cta-btn-primary {
+  font-size: 1.6vw;
+  padding: 1vw 3vw;
+  display: inline-block;
+  min-height: 44px;
+}
+
+.cta-btn-secondary {
+  font-size: 1.4vw;
+  min-height: 44px;
+  display: inline-flex;
+  align-items: center;
+}
+
+/* -------------------------------------------------------
+   FOOTER WORDMARK — Desktop
+------------------------------------------------------- */
+.footer-wordmark {
+  font-size: 14vw;
+}
+
+/* =======================================================
+   LAPTOP (≤ 1024px) — Scaled, maintains desktop grammar
+======================================================= */
+@media (max-width: 1024px) {
+  .hero-title {
+    font-size: 28vw;
+  }
+
+  .burger-float-wrap {
+    width: 44vw;
+    height: 44vw;
+  }
+
+  .hero-footnote-block {
+    width: 26vw;
+  }
+
+  .hero-footnote-block p {
+    font-size: 1.3vw;
+  }
+
+  .cta-left {
+    width: 48vw;
+  }
+
+  .cta-right {
+    width: 38vw;
+  }
+
+  .cta-btn-primary {
+    font-size: 1.9vw;
+    padding: 1.1vw 3.2vw;
+  }
+
+  .cta-btn-secondary {
+    font-size: 1.6vw;
+  }
+
+  .ingredients-grid {
+    gap: 2.5vw;
+  }
+}
+
+/* =======================================================
+   TABLET (≤ 768px) — Intentional tablet compositions
+   Ingredients: 2×2 grid. Hero: tighter. Cards: slightly compact.
+======================================================= */
+@media (max-width: 768px) {
+
+  /* -- Text strokes scale to vw so they look right at tablet -- */
+  .text-stroke-monumental {
+    -webkit-text-stroke: 0.55vw var(--color-sticker-white);
+  }
+  .text-stroke-wordmark {
+    -webkit-text-stroke: 1vw var(--color-sticker-white);
+  }
+  .text-stroke-badge {
+    -webkit-text-stroke: 0.45vw var(--color-sticker-white);
+  }
+  .text-stroke-logo {
+    -webkit-text-stroke: 0.38vw var(--color-sticker-white);
+  }
+  .text-stroke-heading {
+    -webkit-text-stroke: 0.4vw var(--color-sticker-white);
+  }
+  .text-stroke-white {
+    -webkit-text-stroke: 0.55vw var(--color-sticker-white);
+  }
+  .text-stroke-small {
+    -webkit-text-stroke: 0.28vw var(--color-sticker-white);
+  }
+
+  /* -- HERO: Tight composition, no giant void -- */
+  #hero {
+    height: auto;
+    min-height: 100svh;
+    padding-top: 18vw;
+    padding-bottom: 6vw;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 0;
+  }
+
+  .hero-title {
+    font-size: 23vw;
+    line-height: 0.82;
+  }
+
+  /* Burger: inline flow between headline and wordmark */
+  .burger-float-wrap {
+    position: relative !important;
+    top: auto !important;
+    left: auto !important;
+    transform: none !important;
+    width: 72vw;
+    height: 72vw;
+    margin: -6vw auto 0;
+    z-index: 20;
+  }
+
+  .hero-206-wordmark {
+    font-size: 20vw;
+    margin-top: 2vw;
+    transform: none;
+    position: relative;
+    z-index: 21;
+  }
+
+  /* Footnotes: force static to escape Tailwind absolute */
+  .hero-footnotes {
+    position: static !important;
+    padding: 4vw 5vw 2vw;
+    gap: 4vw;
+  }
+
+  .hero-footnote-block {
+    width: 46%;
+  }
+
+  .hero-footnote-block p {
+    font-size: 1.8vw;
+    text-align: center;
+  }
+
+  /* -- INGREDIENTS: 2×2 grid at tablet -- */
+  .ingredients-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 3vw;
+  }
+
+  /* -- CTA SECTION: 2-column maintained at tablet -- */
+  .cta-section {
+    padding: 10vw 5vw;
+    gap: 5vw;
+    max-width: 100%;
+  }
+
+  .cta-left {
+    width: 50vw;
+  }
+
+  .cta-right {
+    width: 42vw;
+  }
+
+  .cta-buttons {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 3vw;
+  }
+
+  .cta-btn-primary {
+    font-size: 2.5vw;
+    padding: 1.8vw 4vw;
+  }
+
+  .cta-btn-secondary {
+    font-size: 2.2vw;
+  }
+
+  /* -- FOOTER WORDMARK -- */
+  .footer-wordmark {
+    font-size: 16vw;
+  }
+}
+
+/* =======================================================
+   MOBILE (≤ 480px) — Full vertical mobile reconstruction
+   Each section intentionally recomposed, not compressed.
+======================================================= */
+@media (max-width: 480px) {
+
+  /* -- Text strokes: heavier for small viewports -- */
+  .text-stroke-monumental {
+    -webkit-text-stroke: 1.1vw var(--color-sticker-white);
+  }
+  .text-stroke-wordmark {
+    -webkit-text-stroke: 1.8vw var(--color-sticker-white);
+  }
+  .text-stroke-badge {
+    -webkit-text-stroke: 0.9vw var(--color-sticker-white);
+  }
+  .text-stroke-logo {
+    -webkit-text-stroke: 0.75vw var(--color-sticker-white);
+  }
+  .text-stroke-heading {
+    -webkit-text-stroke: 0.9vw var(--color-sticker-white);
+  }
+  .text-stroke-white {
+    -webkit-text-stroke: 1.1vw var(--color-sticker-white);
+  }
+  .text-stroke-small {
+    -webkit-text-stroke: 0.6vw var(--color-sticker-white);
+  }
+
+  /* -- HERO: Mobile vertical stack, tight and punchy -- */
+  #hero {
+    height: auto;
+    min-height: 100svh;
+    padding-top: 20vw;
+    padding-bottom: 8vw;
+    justify-content: flex-start;
+    gap: 0;
+  }
+
+  .hero-title {
+    font-size: 26vw;
+    line-height: 0.82;
+  }
+
+  .burger-float-wrap {
+    position: relative !important;
+    top: auto !important;
+    left: auto !important;
+    transform: none !important;
+    width: 78vw;
+    height: 78vw;
+    margin: -8vw auto 0;
+    z-index: 20;
+  }
+
+  .hero-206-wordmark {
+    font-size: 22vw;
+    margin-top: 2vw;
+    padding-top: 0;
+    transform: none;
+    position: relative;
+    z-index: 21;
+  }
+
+  /* Footnotes: single column stacked, forced out of absolute */
+  .hero-footnotes {
+    flex-direction: column;
+    align-items: center;
+    gap: 4vw;
+    padding: 5vw 6vw 3vw;
+    position: static !important;
+  }
+
+  .hero-footnote-block {
+    width: 90%;
+  }
+
+  .hero-footnote-block p {
+    font-size: 3.5vw;
+    text-align: center;
+  }
+
+  /* -- INGREDIENTS: Single column, compact cards -- */
+  .ingredients-grid {
+    grid-template-columns: 1fr;
+    gap: 4vw;
+  }
+
+  /* -- CTA SECTION: Full vertical stack -- */
+  .cta-section {
+    flex-direction: column;
+    padding: 14vw 6vw;
+    gap: 8vw;
+    max-width: 100%;
+  }
+
+  .cta-left {
+    width: 100%;
+    text-align: left;
+  }
+
+  .cta-right {
+    width: 100%;
+  }
+
+  .cta-buttons {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 3vw;
+    width: 100%;
+  }
+
+  /* Full-width touch buttons on mobile — min 48px tap target */
+  .cta-btn-primary {
+    font-size: 4.5vw;
+    padding: 3.5vw 6vw;
+    width: 100%;
+    text-align: center;
+    display: block;
+    min-height: 48px;
+  }
+
+  .cta-btn-secondary {
+    font-size: 4vw;
+    width: 100%;
+    text-align: center;
+    display: block;
+    padding: 3vw 0;
+    min-height: 48px;
+  }
+
+  /* -- FOOTER WORDMARK: Scales without overflow -- */
+  .footer-wordmark {
+    font-size: 18vw;
+    letter-spacing: -0.01em;
+  }
+}
+
+/* =======================================================
+   REDUCED MOTION SUPPORT
+======================================================= */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}

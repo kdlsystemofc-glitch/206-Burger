@@ -1,0 +1,633 @@
+<!DOCTYPE html>
+<html lang="pt-BR" class="h-full antialiased scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>206 Burger | Smash Burgers Artesanais em Diadema</title>
+  <meta name="description" content="O autêntico smash burger de Diadema. Crosta perfeita na chapa, queijo empanado crocante, cheddar cremoso e muito sabor. Av. Sete de Setembro, 382.">
+  <link rel="canonical" href="https://206burger.vercel.app/">
+  <link rel="icon" type="image/svg+xml" href="favicon.svg">
+
+  <!-- Open Graph / Facebook / WhatsApp -->
+  <meta property="og:type" content="website">
+  <meta property="og:locale" content="pt_BR">
+  <meta property="og:site_name" content="206 Burger">
+  <meta property="og:url" content="https://206burger.vercel.app/">
+  <meta property="og:title" content="206 Burger | Smash Burgers Artesanais em Diadema">
+  <meta property="og:description" content="O autêntico smash burger de Diadema. Crosta perfeita na chapa, queijo empanado crocante, cheddar cremoso e sabor inigualável. Feito no Centro de Diadema.">
+  <meta property="og:image" content="https://206burger.vercel.app/imagens/burger-sticker-hero.png">
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="206 Burger | Smash Burgers Artesanais em Diadema">
+  <meta name="twitter:description" content="O autêntico smash burger de Diadema. Crosta perfeita na chapa, queijo empanado crocante e cheddar cremoso.">
+  <meta name="twitter:image" content="https://206burger.vercel.app/imagens/burger-sticker-hero.png">
+
+  <!-- Schema.org Structured Data (FastFoodRestaurant / LocalBusiness) -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FastFoodRestaurant",
+    "name": "206 Burger",
+    "image": "https://206burger.vercel.app/imagens/burger-sticker-hero.png",
+    "telephone": "+55-11-99145-5767",
+    "servesCuisine": "Smash Burgers, Fast Food Artesanal",
+    "priceRange": "$$",
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "Av. Sete de Setembro, 382",
+      "addressLocality": "Diadema",
+      "addressRegion": "SP",
+      "postalCode": "09911-550",
+      "addressCountry": "BR"
+    },
+    "geo": {
+      "@type": "GeoCoordinates",
+      "latitude": -23.6865,
+      "longitude": -46.6234
+    },
+    "openingHoursSpecification": [
+      {
+        "@type": "OpeningHoursSpecification",
+        "dayOfWeek": ["Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"],
+        "opens": "18:00",
+        "closes": "23:30"
+      }
+    ],
+    "aggregateRating": {
+      "@type": "AggregateRating",
+      "ratingValue": "4.9",
+      "reviewCount": "59"
+    }
+  }
+  </script>
+  
+  <!-- Google Fonts: Mouse Memoirs, Modak, Plus Jakarta Sans, Bebas Neue -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Modak&family=Mouse+Memoirs&family=Plus+Jakarta+Sans:ital,wght@0,400..800;1,400..800&display=swap" rel="stylesheet">
+  
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            beige: '#F5E3CD',
+            'beige-light': '#FAF0E4',
+            red: '#F91814',
+            'red-dark': '#D31410',
+            mustard: '#F4A804',
+            'mustard-dark': '#D98800',
+            cyan: '#38BDF8',
+            dark: '#18191B'
+          },
+          fontFamily: {
+            mouse: ['"Mouse Memoirs"', 'sans-serif'],
+            modak: ['"Modak"', 'cursive', 'sans-serif'],
+            jakarta: ['"Plus Jakarta Sans"', 'sans-serif'],
+            bebas: ['"Bebas Neue"', 'sans-serif']
+          }
+        }
+      }
+    }
+  </script>
+
+  <link rel="stylesheet" href="index.css">
+</head>
+<body class="bg-[#F5E3CD] text-[#18191B] selection:bg-[#F91814] selection:text-white min-h-full flex flex-col font-jakarta">
+
+  <!-- =======================================================
+       1. FIXED HEADER / NAVBAR (Exact Reference Architecture)
+  ======================================================= -->
+  <header id="main-header" class="fixed top-0 left-0 w-full z-50 transition-all duration-300 px-[3vw] py-[1.2vw] max-md:px-[5vw] max-md:py-[3.5vw] flex items-center justify-between">
+    
+    <!-- Client Logo: 206 BURGER in Modak Bubble Display Typography with White Stroke -->
+    <a href="#hero" class="logo-link group flex items-baseline gap-1" aria-label="206 Burger Início">
+      <span class="font-modak text-[#F91814] text-[3.8vw] max-md:text-[8.5vw] leading-none tracking-tight text-stroke-logo drop-shadow-sm group-hover:scale-105 transition-transform duration-300">206</span>
+      <span class="font-mouse text-[#18191B] text-[1.6vw] max-md:text-[3.8vw] uppercase tracking-wider font-bold">BURGER</span>
+    </a>
+
+    <!-- Right Controls: CTA Pill with double text slide + Menu Trigger -->
+    <div class="flex items-center gap-[1.2vw] max-md:gap-[2.5vw]">
+      
+      <!-- Primary Conversion CTA Pill -->
+      <a href="https://api.whatsapp.com/send?phone=5511991455767" target="_blank" rel="noopener noreferrer" class="group relative overflow-hidden bg-[#F91814] text-[#F5E3CD] px-[2vw] py-[0.6vw] max-md:px-[4.5vw] max-md:py-[2vw] rounded-full font-mouse text-[1.4vw] max-md:text-[4vw] uppercase tracking-wider transition-all duration-300 hover:scale-105 hover:bg-[#18191B] inline-flex items-center justify-center shadow-md">
+        <span class="relative block overflow-hidden h-[1.5em]">
+          <span class="block transition-transform duration-300 group-hover:-translate-y-full">Pedir Agora</span>
+          <span class="absolute inset-0 block transition-transform duration-300 translate-y-full group-hover:translate-y-0 text-[#F4A804]" aria-hidden="true">Pedir Agora</span>
+        </span>
+      </a>
+
+      <!-- Menu Button with 3-bar icon -->
+      <button id="menu-btn" class="group relative flex items-center gap-[0.8vw] max-md:gap-[1.8vw] px-[1.6vw] py-[0.6vw] max-md:px-[4vw] max-md:py-[2vw] rounded-full border-[0.15vw] max-md:border-[0.4vw] border-[#18191B]/25 hover:border-[#18191B] bg-transparent transition-all duration-300 hover:scale-105 cursor-pointer" aria-label="Abrir Menu">
+        <span class="relative font-mouse text-[1.4vw] max-md:text-[4vw] uppercase tracking-wider text-[#18191B] block overflow-hidden h-[1.5em]">
+          <span class="block transition-transform duration-300 group-hover:-translate-y-full">Menu</span>
+          <span class="absolute inset-0 block transition-transform duration-300 translate-y-full group-hover:translate-y-0" aria-hidden="true">Menu</span>
+        </span>
+        <div class="flex flex-col justify-between w-[1.1vw] h-[0.85vw] max-md:w-[3.2vw] max-md:h-[2.6vw]">
+          <span class="block w-full h-[0.14vw] max-md:h-[0.45vw] bg-[#18191B] rounded-full transition-transform duration-300"></span>
+          <span class="block w-[75%] h-[0.14vw] max-md:h-[0.45vw] bg-[#18191B] rounded-full transition-transform duration-300"></span>
+          <span class="block w-full h-[0.14vw] max-md:h-[0.45vw] bg-[#18191B] rounded-full transition-transform duration-300"></span>
+        </div>
+      </button>
+
+    </div>
+  </header>
+
+  <!-- =======================================================
+       DRAWER MENU (Modal Overlay)
+  ======================================================= -->
+  <div id="menu-drawer" class="fixed inset-0 bg-[#18191B]/80 backdrop-blur-md z-50 opacity-0 pointer-events-none transition-opacity duration-300 flex items-center justify-center">
+    <div class="bg-[#F5E3CD] border-[0.4vw] border-white rounded-[3vw] p-[4vw] max-md:p-[8vw] max-w-[500px] w-[90%] text-center relative shadow-2xl">
+      <button id="close-menu-btn" class="absolute top-[1.5vw] right-[2vw] max-md:top-[4vw] max-md:right-[5vw] font-mouse text-[2vw] max-md:text-[6vw] text-[#18191B] hover:text-[#F91814]" aria-label="Fechar">✕</button>
+      <h3 class="font-modak text-[#F91814] text-[4vw] max-md:text-[10vw] text-stroke-logo mb-[2vw]">206 BURGER</h3>
+      <nav class="flex flex-col gap-[1.5vw] max-md:gap-[4vw] font-mouse text-[2.2vw] max-md:text-[6vw] uppercase">
+        <a href="#hero" class="menu-link hover:text-[#F91814] transition-colors">Início</a>
+        <a href="#about" class="menu-link hover:text-[#F91814] transition-colors">Destaques</a>
+        <a href="#experience" class="menu-link hover:text-[#F91814] transition-colors">Nossa Cultura</a>
+        <a href="#ingredients" class="menu-link hover:text-[#F91814] transition-colors">Anatomia do Smash</a>
+        <a href="#delivery" class="menu-link hover:text-[#F91814] transition-colors">Delivery & Retirada</a>
+        <a href="#cta" class="menu-link hover:text-[#F91814] transition-colors">Fazer Pedido</a>
+      </nav>
+      <div class="mt-[3vw] pt-[2vw] border-t border-[#18191B]/15">
+        <p class="font-jakarta text-[0.9vw] max-md:text-[3.2vw] text-[#18191B]/70">Av. Sete de Setembro, 382 - Centro, Diadema - SP</p>
+        <p class="font-jakarta text-[0.9vw] max-md:text-[3.2vw] font-bold text-[#F91814] mt-1">(11) 99145-5767</p>
+      </div>
+    </div>
+  </div>
+
+  <main class="flex-grow">
+    
+    <!-- =======================================================
+         SCENE 01: HERO SECTION (Approved Reference Geometry + Spring Pop)
+    ======================================================= -->
+    <section id="hero" class="h-screen w-full relative flex flex-col justify-between items-center pt-[8vw] overflow-hidden bg-[#F5E3CD]" style="--hero-mobile-h: 150vw;">
+      
+      <!-- Top Typographic Architecture & Flanking Badges -->
+      <div class="w-fit h-fit relative select-none">
+        
+        <!-- Badge 01: Top-Left Rotated Badge -->
+        <p class="absolute top-[8%] left-[8%] text-[#D98800] z-10 rotate-15 max-md:rotate-0 max-md:top-[1%] max-md:left-[2%] text-stroke-badge text-center text-[2.8vw] font-modak leading-[.9] max-md:text-[5.5vw] drop-shadow-sm transition-transform duration-300 hover:scale-110 animate-badge-left">
+          SMASHED<br/>FRESH
+        </p>
+
+        <!-- Monumental Backdrop Heading: "THE BURGER" -->
+        <h1 class="text-[30vw] leading-[.8] text-center text-[#F91814] text-stroke-monumental font-mouse tracking-tight will-change-transform select-none animate-pop-title hero-title">
+          THE BURGER
+        </h1>
+
+        <!-- Floating Pickle/Lime Sticker Detail (Top Right of Burger) -->
+        <div class="absolute top-[18%] right-[22%] z-20 w-[2.4vw] h-[2.4vw] max-md:w-[5vw] max-md:h-[5vw] rounded-full bg-[#84CC16] border-[0.2vw] border-white shadow-md flex items-center justify-center -rotate-12 animate-pulse">
+          <div class="w-[60%] h-[60%] rounded-full border border-white/60 border-dashed"></div>
+        </div>
+
+        <!-- Badge 02: Bottom-Right Rotated Badge -->
+        <p class="absolute bottom-[8%] right-[8%] text-[#D98800] z-10 -rotate-15 max-md:rotate-0 max-md:bottom-[1%] max-md:right-[2%] text-stroke-badge text-center text-[2.8vw] font-modak leading-[.9] max-md:text-[5.5vw] drop-shadow-sm transition-transform duration-300 hover:scale-110 animate-badge-right">
+          FEITO EM<br/>DIADEMA
+        </p>
+
+      </div>
+
+      <!-- Seamless Burger Product Cutout Layer (Size 40vw desktop / 80vw mobile) -->
+      <div class="burger-float-wrap pointer-events-none flex items-center justify-center">
+        
+        <!-- Animated Floating Container with Natural Ambient Shadow -->
+        <div class="relative w-full h-full animate-float flex items-center justify-center">
+          
+          <!-- Realistic Soft Contact Shadow under burger -->
+          <div class="absolute bottom-[2%] left-1/2 -translate-x-1/2 w-[70%] h-[12%] max-md:w-[55%] max-md:h-[8%] rounded-full bg-[#18191B]/20 max-md:bg-[#18191B]/15 blur-[1.2vw] max-md:blur-md"></div>
+          
+          <!-- Pristine Isolated Burger Sticker Cutout -->
+          <img src="imagens/burger-sticker-hero.png" 
+               alt="Smash Burger Duplo 206 Burger artesanal com queijo empanado, cheddar cremoso e bacon" 
+               class="h-full w-full object-contain relative z-10 drop-shadow-burger"
+               fetchpriority="high">
+        </div>
+
+      </div>
+
+      <!-- Lower Monumental Wordmark "206" (Underneath Cutout) -->
+      <p class="hero-206-wordmark text-center font-modak uppercase relative z-20 text-stroke-wordmark text-[#F4A804] select-none animate-wordmark">
+        206
+      </p>
+
+      <!-- Symmetrical Bottom Narrative Footnotes (Left: Process | Right: Flavor) -->
+      <div class="hero-footnotes w-full absolute bottom-0 left-0 flex justify-between px-[2.5vw] py-[2vw] z-20">
+        
+        <!-- Left Storytelling Block: Chapa & Smash Craft -->
+        <div class="hero-footnote-block">
+          <p class="font-jakarta text-[1.1vw] font-semibold leading-[1.3] text-[#18191B]/85">
+            Prensado na chapa ultra quente: blend 100% bovino selado para criar a crosta caramelizada perfeita e reter toda a suculência.
+          </p>
+        </div>
+
+        <!-- Right Storytelling Block: Ingredients & Diadema Roots -->
+        <div class="hero-footnote-block">
+          <p class="font-jakarta text-[1.1vw] font-semibold leading-[1.3] text-[#18191B]/85 text-right">
+            Cheddar cremoso abundante, queijo empanado crocante e maionese da casa. O hambúrguer de conforto oficial de Diadema.
+          </p>
+        </div>
+
+      </div>
+
+    </section>
+
+    <!-- =======================================================
+         SCENE 02: ABOUT / TOP CLASSIC (3-Card Tilted Gallery)
+    ======================================================= -->
+    <section id="about" class="relative z-20 text-center py-[6vw] max-md:py-[12vw] px-[4vw] bg-[#F5E3CD]">
+      
+      <!-- Top Classic Eyebrow Badge -->
+      <div class="inline-block mx-auto -rotate-3 hover:rotate-0 transition-transform duration-300 mb-[1.5vw] reveal-fade-up">
+        <span class="font-modak text-[#F91814] text-[2.4vw] max-md:text-[5.5vw] uppercase text-stroke-small tracking-wide">
+          ★ TOP CLASSIC ★
+        </span>
+      </div>
+
+      <!-- Headline: SUCULÊNCIA · CROSTA · QUEIJO -->
+      <h2 class="font-mouse text-[#F91814] text-[8.5vw] max-md:text-[13vw] leading-[0.88] uppercase text-stroke-heading max-w-[85vw] mx-auto tracking-tight mb-[2vw] reveal-fade-up">
+        SUCULÊNCIA · CROSTA · QUEIJO
+      </h2>
+
+      <!-- Subtext: 12 Meses Consecutivos Super Restaurante iFood -->
+      <p class="font-jakarta text-[1.2vw] max-md:text-[3.8vw] text-[#18191B]/80 max-w-[55vw] max-md:max-w-[88vw] mx-auto font-medium leading-[1.5] mb-[3.5vw] reveal-fade-up">
+        Eleito Super Restaurante iFood por 12 meses consecutivos. Do smash duplo clássico ao especial com disco de queijo empanado crocante, feito artesanalmente no Centro de Diadema.
+      </p>
+
+      <!-- Organic Blob Morphing CTA Button -->
+      <div class="mb-[5vw] reveal-fade-up">
+        <a href="https://api.whatsapp.com/send?phone=5511991455767" target="_blank" rel="noopener noreferrer" class="inline-block bg-[#F91814] text-[#F5E3CD] font-mouse text-[1.8vw] max-md:text-[4.5vw] uppercase px-[3.5vw] py-[1.2vw] max-md:px-[7vw] max-md:py-[3vw] rounded-full border-[0.2vw] border-white shadow-xl hover:bg-[#18191B] hover:scale-105 transition-all duration-300 tracking-wider">
+          Explorar Cardápio no WhatsApp ➔
+        </a>
+      </div>
+
+      <!-- 3-Card Tilted Photo Gallery (Matching Reference Angle Structure) -->
+      <div class="flex justify-center items-center gap-[2.5vw] max-md:flex-col max-md:gap-[6vw] max-w-[1200px] mx-auto">
+        
+        <!-- Card 1: Batatas Loaded (-5 deg tilt) -->
+        <div class="reveal-fade-up reveal-stagger-1 group relative w-[26vw] h-[34vw] max-md:w-[85vw] max-md:h-[105vw] rounded-[2.5vw] overflow-hidden border-[0.35vw] border-white shadow-xl -rotate-4 hover:rotate-0 hover:scale-105 transition-all duration-300 bg-white">
+          <img src="imagens/imgi_11_470190249_18141206947365289_1983638227006648574_n.jpg" alt="Batata frita crocante com cheddar cremoso e bacon em cubos" class="w-full h-full object-cover" loading="lazy" decoding="async">
+          <div class="absolute bottom-0 inset-x-0 bg-gradient-to-t from-[#18191B]/90 via-[#18191B]/40 to-transparent p-[1.5vw] text-left">
+            <span class="font-modak text-[#F4A804] text-[1.4vw] max-md:text-[4.5vw] block">LOADED FRIES</span>
+            <p class="font-jakarta text-[0.85vw] max-md:text-[3vw] text-white/90">Batata frita com cheddar cremoso abundante e bacon crocante.</p>
+          </div>
+        </div>
+
+        <!-- Card 2: Smash na Chapa (+4 deg tilt - Elevated Hero Card) -->
+        <div class="reveal-fade-up reveal-stagger-2 group relative w-[28vw] h-[36vw] max-md:w-[85vw] max-md:h-[105vw] rounded-[2.5vw] overflow-hidden border-[0.35vw] border-white shadow-2xl rotate-3 hover:rotate-0 hover:scale-105 transition-all duration-300 z-10 bg-white">
+          <img src="imagens/imgi_10_480766410_18148551733365289_6426709800264247012_n.jpg" alt="Smash burger prensado na chapa com queijo empanado" class="w-full h-full object-cover" loading="lazy" decoding="async">
+          <div class="absolute top-[1.5vw] right-[1.5vw] bg-[#F91814] border-[0.15vw] border-white px-[1vw] py-[0.3vw] rounded-full">
+            <span class="font-mouse text-white text-[1vw] max-md:text-[3.2vw] uppercase">O Favorito</span>
+          </div>
+          <div class="absolute bottom-0 inset-x-0 bg-gradient-to-t from-[#18191B]/90 via-[#18191B]/40 to-transparent p-[1.5vw] text-left">
+            <span class="font-modak text-[#F4A804] text-[1.6vw] max-md:text-[4.8vw] block">QUEIJO EMPANADO</span>
+            <p class="font-jakarta text-[0.9vw] max-md:text-[3.2vw] text-white/90">Disco artesanal de queijo empanado crocante derretendo por dentro.</p>
+          </div>
+        </div>
+
+        <!-- Card 3: Salão e Ambiência (-3 deg tilt) -->
+        <div class="reveal-fade-up reveal-stagger-3 group relative w-[26vw] h-[34vw] max-md:w-[85vw] max-md:h-[105vw] rounded-[2.5vw] overflow-hidden border-[0.35vw] border-white shadow-xl -rotate-3 hover:rotate-0 hover:scale-105 transition-all duration-300 bg-white">
+          <img src="imagens/imgi_25_622498715_17991922091749464_2145340767899768272_n.jpg" alt="Salão aconchegante do 206 Burger no Centro de Diadema" class="w-full h-full object-cover" loading="lazy" decoding="async">
+          <div class="absolute bottom-0 inset-x-0 bg-gradient-to-t from-[#18191B]/90 via-[#18191B]/40 to-transparent p-[1.5vw] text-left">
+            <span class="font-modak text-[#F4A804] text-[1.4vw] max-md:text-[4.5vw] block">CULTURA & SALÃO</span>
+            <p class="font-jakarta text-[0.85vw] max-md:text-[3vw] text-white/90">Ambiente descontraído e aconchegante no coração de Diadema.</p>
+          </div>
+        </div>
+
+      </div>
+
+    </section>
+
+    <!-- =======================================================
+         WAVY JELLY TRANSITION 1: BEIGE -> RED (#F91814)
+    ======================================================= -->
+    <div class="w-full overflow-hidden leading-none pointer-events-none -mb-[1px]">
+      <svg class="w-full h-[60px] max-md:h-[30px]" viewBox="0 0 1440 60" fill="none" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M0,0 C360,60 1080,60 1440,0 L1440,60 L0,60 Z" fill="#F91814"/>
+      </svg>
+    </div>
+
+    <!-- =======================================================
+         SCENE 03: BRAND EXPERIENCE & STREET CULTURE (Red Section)
+    ======================================================= -->
+    <section id="experience" class="bg-[#F91814] text-white py-[8vw] max-md:py-[14vw] px-[4vw] relative overflow-hidden text-center">
+      
+      <!-- Background Graphic Tags -->
+      <div class="absolute top-[5%] left-[5%] font-modak text-white/10 text-[12vw] select-none pointer-events-none">206</div>
+      <div class="absolute bottom-[5%] right-[5%] font-mouse text-white/10 text-[15vw] select-none pointer-events-none">DIADEMA</div>
+
+      <!-- Eyebrow -->
+      <div class="inline-block mx-auto mb-[1.5vw] reveal-fade-up">
+        <span class="font-modak text-[#F4A804] text-[2.2vw] max-md:text-[5vw] uppercase text-stroke-small tracking-wider">
+          EXPERIÊNCIA 206
+        </span>
+      </div>
+
+      <!-- Headline -->
+      <h2 class="font-mouse text-white text-[8vw] max-md:text-[12.5vw] leading-[0.88] uppercase text-stroke-heading max-w-[85vw] mx-auto tracking-tight mb-[4vw] reveal-fade-up">
+        SABOR DE VERDADE · CULTURA DE RUA
+      </h2>
+
+      <!-- Central Street Art Graphic & Flanking Pillars -->
+      <div class="flex items-center justify-center gap-[4vw] max-md:flex-col max-md:gap-[6vw] max-w-[1200px] mx-auto">
+        
+        <!-- Left Pillar: iFood Super Restaurante -->
+        <div class="reveal-fade-up reveal-stagger-1 w-[24vw] max-md:w-[85vw] bg-white/10 backdrop-blur-sm border-[0.2vw] border-white/30 rounded-[2vw] p-[2vw] text-left transform hover:-translate-y-2 transition-transform duration-300">
+          <div class="flex items-center gap-2 mb-[1vw]">
+            <span class="text-[#F4A804] text-[1.8vw] max-md:text-[5vw]">★★★★★</span>
+            <span class="font-mouse text-[#F5E3CD] text-[1.4vw] max-md:text-[4vw]">4.9 / 5.0</span>
+          </div>
+          <h3 class="font-modak text-[#F4A804] text-[1.6vw] max-md:text-[4.8vw] leading-tight mb-2">SUPER RESTAURANTE</h3>
+          <p class="font-jakarta text-[0.95vw] max-md:text-[3.2vw] text-white/90 leading-relaxed">
+            Reconhecimento oficial de 12 meses consecutivos pelo iFood pela excelência em tempo de entrega, padrão de temperatura e satisfação do cliente.
+          </p>
+        </div>
+
+        <!-- Center: Mascot Street Art Sticker -->
+        <div class="reveal-fade-up reveal-stagger-2 w-[26vw] h-[26vw] max-md:w-[65vw] max-md:h-[65vw] relative rounded-full overflow-hidden border-[0.4vw] border-white shadow-2xl bg-[#18191B] flex items-center justify-center hover:rotate-3 transition-transform duration-300">
+          <img src="imagens/mascot-character.png" alt="Mascote e grafite de rua da hamburgueria 206 Burger" class="w-full h-full object-cover" loading="lazy" decoding="async">
+        </div>
+
+        <!-- Right Pillar: Blend & Prensagem -->
+        <div class="reveal-fade-up reveal-stagger-3 w-[24vw] max-md:w-[85vw] bg-white/10 backdrop-blur-sm border-[0.2vw] border-white/30 rounded-[2vw] p-[2vw] text-left transform hover:-translate-y-2 transition-transform duration-300">
+          <div class="flex items-center gap-2 mb-[1vw]">
+            <span class="text-[#F4A804] text-[1.8vw] max-md:text-[5vw]">🔥</span>
+            <span class="font-mouse text-[#F5E3CD] text-[1.4vw] max-md:text-[4vw]">100% ARTESANAL</span>
+          </div>
+          <h3 class="font-modak text-[#F4A804] text-[1.6vw] max-md:text-[4.8vw] leading-tight mb-2">CROSTA & SUCO</h3>
+          <p class="font-jakarta text-[0.95vw] max-md:text-[3.2vw] text-white/90 leading-relaxed">
+            Prensagem smash técnica na chapa em altíssima temperatura. Reação de Maillard profunda que cria uma crosta irresistível sem ressecar o interior.
+          </p>
+        </div>
+
+      </div>
+
+    </section>
+
+    <!-- =======================================================
+         SCENE 04: FULL-BLEED PANORAMIC BANNER
+    ======================================================= -->
+    <section id="panoramic" class="relative w-full h-[35vw] max-md:h-[75vw] overflow-hidden reveal-fade-up">
+      <img src="imagens/imgi_20_356099494_18082014973365289_4333009157721549538_n.jpg" alt="Mãos segurando smash burger duplo artesanal com muito cheddar derretido" class="w-full h-full object-cover" loading="lazy" decoding="async">
+      <div class="absolute inset-0 bg-gradient-to-r from-[#18191B]/80 via-transparent to-[#18191B]/80 flex items-center justify-between px-[6vw]">
+        <div class="max-w-[45vw] max-md:max-w-[80vw]">
+          <span class="bg-[#F4A804] text-[#18191B] font-mouse text-[1.2vw] max-md:text-[3.5vw] uppercase px-[1.2vw] py-[0.4vw] rounded-full border border-white mb-2 inline-block">Morde & Sente</span>
+          <h3 class="font-mouse text-white text-[4.5vw] max-md:text-[8vw] uppercase leading-none text-stroke-heading">O VERDADEIRO SMASH DO ABC</h3>
+        </div>
+        <div class="max-md:hidden">
+          <a href="https://api.whatsapp.com/send?phone=5511991455767" target="_blank" rel="noopener noreferrer" class="bg-[#F91814] text-white font-mouse text-[1.5vw] uppercase px-[2.5vw] py-[1vw] rounded-full border-[0.2vw] border-white shadow-xl hover:bg-[#F4A804] hover:text-[#18191B] transition-colors">
+            Pedir no WhatsApp ➔
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- =======================================================
+         WAVY JELLY TRANSITION 2: RED/PANORAMIC -> BEIGE (#F5E3CD)
+    ======================================================= -->
+    <div class="w-full overflow-hidden leading-none pointer-events-none -mt-[1px]">
+      <svg class="w-full h-[60px] max-md:h-[30px]" viewBox="0 0 1440 60" fill="none" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M0,0 L1440,0 L1440,60 C1080,0 360,0 0,60 Z" fill="#F5E3CD"/>
+      </svg>
+    </div>
+
+    <!-- =======================================================
+         SCENE 05: EXPLODED INGREDIENTS ARCHITECTURE
+    ======================================================= -->
+    <section id="ingredients" class="py-[8vw] max-md:py-[14vw] px-[4vw] bg-[#F5E3CD] text-center relative">
+      
+      <!-- Eyebrow -->
+      <div class="inline-block mx-auto mb-[1.5vw] reveal-fade-up">
+        <span class="font-modak text-[#F91814] text-[2.2vw] max-md:text-[5vw] uppercase text-stroke-small tracking-wider">
+          QUALIDADE PURA
+        </span>
+      </div>
+
+      <!-- Split Monumental Headline -->
+      <h2 class="font-mouse text-[#F91814] text-[8vw] max-md:text-[12vw] leading-[0.88] uppercase text-stroke-heading max-w-[85vw] mx-auto tracking-tight mb-[5vw] reveal-fade-up">
+        CADA CAMADA TEM UMA HISTÓRIA
+      </h2>
+
+      <!-- 4 Ingredient Cards Grid -->
+      <div class="ingredients-grid max-w-[1200px] mx-auto">
+        
+        <!-- Ingredient 1: Pão Brioche -->
+        <div class="reveal-fade-up reveal-stagger-1 bg-white/80 border-[0.25vw] border-white rounded-[2vw] p-[2vw] text-left shadow-lg hover:shadow-2xl hover:-translate-y-2 transition-all duration-300">
+          <span class="font-modak text-[#F91814] text-[2.5vw] max-md:text-[7vw] block">01</span>
+          <h4 class="font-mouse text-[#18191B] text-[2vw] max-md:text-[5.5vw] uppercase mb-2">Pão Brioche Tostado</h4>
+          <p class="font-jakarta text-[0.9vw] max-md:text-[3.2vw] text-[#18191B]/80 leading-relaxed">
+            Macio, amanteigado e selado na chapa com manteiga para criar uma barreira térmica perfeita que segura os molhos sem umedecer a massa.
+          </p>
+        </div>
+
+        <!-- Ingredient 2: Queijo Empanado -->
+        <div class="reveal-fade-up reveal-stagger-2 bg-white/80 border-[0.25vw] border-white rounded-[2vw] p-[2vw] text-left shadow-lg hover:shadow-2xl hover:-translate-y-2 transition-all duration-300">
+          <span class="font-modak text-[#F4A804] text-[2.5vw] max-md:text-[7vw] block">02</span>
+          <h4 class="font-mouse text-[#18191B] text-[2vw] max-md:text-[5.5vw] uppercase mb-2">Queijo Empanado</h4>
+          <p class="font-jakarta text-[0.9vw] max-md:text-[3.2vw] text-[#18191B]/80 leading-relaxed">
+            Exclusividade artesanal da casa: disco espesso empanado na farinha crocante, dourado na hora com interior super cremoso e elástico.
+          </p>
+        </div>
+
+        <!-- Ingredient 3: Smash Blend Bovino -->
+        <div class="reveal-fade-up reveal-stagger-3 bg-white/80 border-[0.25vw] border-white rounded-[2vw] p-[2vw] text-left shadow-lg hover:shadow-2xl hover:-translate-y-2 transition-all duration-300">
+          <span class="font-modak text-[#F91814] text-[2.5vw] max-md:text-[7vw] block">03</span>
+          <h4 class="font-mouse text-[#18191B] text-[2vw] max-md:text-[5.5vw] uppercase mb-2">Duplo Smash 100%</h4>
+          <p class="font-jakarta text-[0.9vw] max-md:text-[3.2vw] text-[#18191B]/80 leading-relaxed">
+            Cortes bovinos selecionados, prensados com espátula pesada na chapa a mais de 200°C para formar a crosta caramelizada perfeita.
+          </p>
+        </div>
+
+        <!-- Ingredient 4: Cheddar Cremoso & Molho -->
+        <div class="reveal-fade-up reveal-stagger-4 bg-white/80 border-[0.25vw] border-white rounded-[2vw] p-[2vw] text-left shadow-lg hover:shadow-2xl hover:-translate-y-2 transition-all duration-300">
+          <span class="font-modak text-[#F4A804] text-[2.5vw] max-md:text-[7vw] block">04</span>
+          <h4 class="font-mouse text-[#18191B] text-[2vw] max-md:text-[5.5vw] uppercase mb-2">Cheddar & Molhos</h4>
+          <p class="font-jakarta text-[0.9vw] max-md:text-[3.2vw] text-[#18191B]/80 leading-relaxed">
+            Cheddar fundido farto e maionese verde artesanal temperada com ervas frescas. O equilíbrio perfeito de acidez, cremosidade e sabor.
+          </p>
+        </div>
+
+      </div>
+
+    </section>
+
+    <!-- =======================================================
+         WAVY JELLY TRANSITION 3: BEIGE -> MUSTARD (#F4A804)
+    ======================================================= -->
+    <div class="w-full overflow-hidden leading-none pointer-events-none -mb-[1px]">
+      <svg class="w-full h-[60px] max-md:h-[30px]" viewBox="0 0 1440 60" fill="none" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M0,0 C360,60 1080,60 1440,0 L1440,60 Z" fill="#F4A804"/>
+      </svg>
+    </div>
+
+    <!-- =======================================================
+         SCENE 06: DELIVERY & TAKE AWAY (Mustard Section)
+    ======================================================= -->
+    <section id="delivery" class="bg-[#F4A804] text-[#18191B] py-[8vw] max-md:py-[14vw] px-[4vw] text-center relative overflow-hidden">
+      
+      <!-- Eyebrow -->
+      <div class="inline-block mx-auto mb-[1.5vw] reveal-fade-up">
+        <span class="font-modak text-[#F91814] text-[2.2vw] max-md:text-[5vw] uppercase text-stroke-small tracking-wider">
+          RETIRADA & DELIVERY
+        </span>
+      </div>
+
+      <!-- Headline -->
+      <h2 class="font-mouse text-[#18191B] text-[8vw] max-md:text-[12vw] leading-[0.88] uppercase text-stroke-white max-w-[85vw] mx-auto tracking-tight mb-[4vw] reveal-fade-up">
+        DO CENTRO DE DIADEMA ATÉ A SUA MESA
+      </h2>
+
+      <!-- Delivery Experience Cards -->
+      <div class="flex justify-center items-center gap-[3vw] max-md:flex-col max-md:gap-[6vw] max-w-[1100px] mx-auto mb-[4vw]">
+        
+        <!-- Polaroid 1: Kraft Bags Delivery -->
+        <div class="reveal-fade-up reveal-stagger-1 w-[28vw] max-md:w-[85vw] bg-white p-[1.2vw] rounded-[2vw] shadow-2xl -rotate-3 hover:rotate-0 transition-transform duration-300">
+          <div class="h-[20vw] max-md:h-[60vw] rounded-[1.2vw] overflow-hidden mb-[1vw]">
+            <img src="imagens/imgi_24_626835699_18081145543998394_6985853577033162903_n.jpg" alt="Sacolas kraft de delivery do 206 Burger" class="w-full h-full object-cover" loading="lazy" decoding="async">
+          </div>
+          <span class="font-modak text-[#F91814] text-[1.4vw] max-md:text-[4.5vw] block text-left">EMBALAGEM TÉRMICA</span>
+          <p class="font-jakarta text-[0.85vw] max-md:text-[3vw] text-[#18191B]/80 text-left">Seu pedido chega crocante, aquecido e impecável.</p>
+        </div>
+
+        <!-- Polaroid 2: Complete Combo -->
+        <div class="reveal-fade-up reveal-stagger-2 w-[28vw] max-md:w-[85vw] bg-white p-[1.2vw] rounded-[2vw] shadow-2xl rotate-3 hover:rotate-0 transition-transform duration-300">
+          <div class="h-[20vw] max-md:h-[60vw] rounded-[1.2vw] overflow-hidden mb-[1vw]">
+            <img src="imagens/imgi_18_366019412_18088121875365289_7857601241337734178_n.jpg" alt="Combo de smash burger artesanal com batata frita e molho" class="w-full h-full object-cover" loading="lazy" decoding="async">
+          </div>
+          <span class="font-modak text-[#F91814] text-[1.4vw] max-md:text-[4.5vw] block text-left">COMBO COMPLETO</span>
+          <p class="font-jakarta text-[0.85vw] max-md:text-[3vw] text-[#18191B]/80 text-left">Smash burger, porção de batatas e molho da casa.</p>
+        </div>
+
+      </div>
+
+      <!-- Action Button -->
+      <div class="reveal-fade-up">
+        <a href="https://api.whatsapp.com/send?phone=5511991455767" target="_blank" rel="noopener noreferrer" class="inline-block bg-[#F91814] text-white font-mouse text-[1.8vw] max-md:text-[4.5vw] uppercase px-[3.5vw] py-[1.2vw] max-md:px-[7vw] max-md:py-[3vw] rounded-full border-[0.2vw] border-white shadow-xl hover:bg-[#18191B] hover:scale-105 transition-all duration-300">
+          Peça Agora pelo WhatsApp ➔
+        </a>
+      </div>
+
+    </section>
+
+    <!-- =======================================================
+         WAVY JELLY TRANSITION 4: MUSTARD -> BEIGE (#F5E3CD)
+    ======================================================= -->
+    <div class="w-full overflow-hidden leading-none pointer-events-none -mt-[1px]">
+      <svg class="w-full h-[60px] max-md:h-[30px]" viewBox="0 0 1440 60" fill="none" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M0,0 L1440,0 L1440,60 C1080,0 360,0 0,60 Z" fill="#F5E3CD"/>
+      </svg>
+    </div>
+
+    <!-- =======================================================
+         SCENE 07: FINAL CONVERSION & FEAST
+    ======================================================= -->
+    <section id="cta" class="py-[8vw] px-[6vw] bg-[#F5E3CD] cta-section">
+      
+      <!-- Left Column: Copy & Order Action -->
+      <div class="cta-left reveal-fade-up">
+        <span class="font-modak text-[#F91814] text-[2vw] max-md:text-[5vw] uppercase text-stroke-small tracking-wide mb-2 inline-block">
+          BATEU A FOME?
+        </span>
+        <h2 class="font-mouse text-[#F91814] text-[6.5vw] max-md:text-[11vw] uppercase leading-[0.9] text-stroke-heading mb-[2vw]">
+          SINTA O VERDADEIRO SABOR DE DIADEMA
+        </h2>
+        <p class="font-jakarta text-[1.1vw] max-md:text-[3.6vw] text-[#18191B]/80 font-medium leading-relaxed mb-[2.5vw]">
+          Estamos prontos para preparar o seu smash na chapa agora. Peça pelo delivery ou retire quentinho no balcão da Av. Sete de Setembro.
+        </p>
+
+        <div class="cta-buttons mb-[2vw]">
+          <a href="https://api.whatsapp.com/send?phone=5511991455767" target="_blank" rel="noopener noreferrer" class="cta-btn-primary bg-[#F91814] text-white font-mouse uppercase rounded-full border-[0.2vw] border-white shadow-xl hover:bg-[#18191B] hover:scale-105 transition-all duration-300">
+            Pedir no WhatsApp ➔
+          </a>
+          <a href="https://maps.google.com/?q=Av.+Sete+de+Setembro,+382+-+Centro,+Diadema+-+SP" target="_blank" rel="noopener noreferrer" class="cta-btn-secondary font-mouse uppercase text-[#18191B] hover:text-[#F91814] transition-colors underline underline-offset-4">
+            Ver no Google Maps 📍
+          </a>
+        </div>
+
+        <div class="flex items-center gap-4 text-[#18191B]/70 font-jakarta text-[0.9vw] max-md:text-[3vw]">
+          <span>🕒 Ter a Dom: 18:00 às 23:30</span>
+          <span>•</span>
+          <span>⭐ 4.9 no Google (59 avaliações)</span>
+        </div>
+      </div>
+
+      <!-- Right Column: Appetizing Feast Photo in Sticker Frame -->
+      <div class="cta-right relative reveal-fade-up">
+        <div class="w-full h-[28vw] max-md:h-[70vw] rounded-[3vw] overflow-hidden border-[0.4vw] border-white shadow-2xl -rotate-2 hover:rotate-0 transition-transform duration-300 bg-white">
+          <img src="imagens/imgi_19_357440779_18082822108365289_5610939573430743162_n.jpg" alt="Mesa com banquete de hambúrgueres artesanais, batatas e bebidas do 206 Burger" class="w-full h-full object-cover" loading="lazy" decoding="async">
+        </div>
+        <div class="absolute -bottom-[2vw] -left-[2vw] bg-[#F4A804] border-[0.25vw] border-white px-[1.5vw] py-[0.8vw] rounded-full shadow-lg rotate-6">
+          <span class="font-modak text-[#18191B] text-[1.4vw] max-md:text-[4vw]">100% DIADEMA</span>
+        </div>
+      </div>
+
+    </section>
+
+    <!-- =======================================================
+         SCENE 08: MONUMENTAL FOOTER & BRAND OUTRO (Dark Surface)
+    ======================================================= -->
+    <footer id="footer" class="bg-[#18191B] text-[#F5E3CD] pt-[6vw] pb-[3vw] px-[4vw] relative overflow-hidden">
+      
+      <!-- Top Grid: Info & Links -->
+      <div class="grid grid-cols-3 max-md:grid-cols-1 gap-[4vw] max-w-[1200px] mx-auto mb-[6vw] text-left">
+        
+        <!-- Col 1: Brand & Manifesto -->
+        <div class="reveal-fade-up reveal-stagger-1">
+          <div class="flex items-baseline gap-1 mb-[1vw]">
+            <span class="font-modak text-[#F91814] text-[2.8vw] max-md:text-[8vw] leading-none text-stroke-logo">206</span>
+            <span class="font-mouse text-white text-[1.4vw] max-md:text-[3.8vw] uppercase tracking-wider font-bold">BURGER</span>
+          </div>
+          <p class="font-jakarta text-[0.9vw] max-md:text-[3.2vw] text-white/70 leading-relaxed">
+            O autêntico smash burger artesanal de Diadema. Prensado na chapa com perfeição, ingredientes selecionados e muito carinho para você.
+          </p>
+        </div>
+
+        <!-- Col 2: Horários & Localização -->
+        <div class="reveal-fade-up reveal-stagger-2">
+          <h4 class="font-mouse text-[#F4A804] text-[1.6vw] max-md:text-[5vw] uppercase mb-[1vw]">Onde Estamos</h4>
+          <p class="font-jakarta text-[0.9vw] max-md:text-[3.2vw] text-white/80 leading-relaxed mb-2">
+            Av. Sete de Setembro, 382 - Centro<br>
+            Diadema - SP, 09911-550
+          </p>
+          <p class="font-jakarta text-[0.9vw] max-md:text-[3.2vw] text-white/70">
+            Terça a Domingo: 18:00 às 23:30<br>
+            Telefone / WhatsApp: (11) 99145-5767
+          </p>
+        </div>
+
+        <!-- Col 3: Navegação Rápida -->
+        <div class="reveal-fade-up reveal-stagger-3">
+          <h4 class="font-mouse text-[#F4A804] text-[1.6vw] max-md:text-[5vw] uppercase mb-[1vw]">Navegação</h4>
+          <ul class="font-mouse text-[1.2vw] max-md:text-[4vw] uppercase space-y-1 text-white/80">
+            <li><a href="#hero" class="hover:text-[#F91814] transition-colors">Início</a></li>
+            <li><a href="#about" class="hover:text-[#F91814] transition-colors">Top Classic</a></li>
+            <li><a href="#experience" class="hover:text-[#F91814] transition-colors">Nossa Cultura</a></li>
+            <li><a href="#ingredients" class="hover:text-[#F91814] transition-colors">Anatomia do Smash</a></li>
+            <li><a href="#delivery" class="hover:text-[#F91814] transition-colors">Delivery & Retirada</a></li>
+          </ul>
+        </div>
+
+      </div>
+
+      <!-- Monumental Wordmark 206 BURGER at the Bottom -->
+      <div class="border-t border-white/10 pt-[4vw] mb-[2vw] text-center select-none reveal-fade-up">
+        <p class="font-modak text-[#F4A804] footer-wordmark leading-none text-stroke-wordmark tracking-tight opacity-90 hover:opacity-100 transition-opacity duration-300">
+          206 BURGER
+        </p>
+      </div>
+
+      <!-- Bottom Meta -->
+      <div class="flex justify-between items-center max-md:flex-col max-md:gap-2 text-white/50 font-jakarta text-[0.8vw] max-md:text-[2.8vw] max-w-[1200px] mx-auto pt-[1vw]">
+        <p>© 2026 206 Burger • Todos os direitos reservados. Feito com amor em Diadema.</p>
+        <p>Smash Burgers Artesanais • Super Restaurante iFood</p>
+      </div>
+
+    </footer>
+
+  </main>
+
+  <script src="index.js"></script>
+</body>
+</html>

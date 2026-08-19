@@ -1,0 +1,17 @@
+﻿# Dependencies
+node_modules/
+.vercel/
+
+# Environment files & secrets
+.env
+.env.*
+!.env.example
+
+# Temporary & debug files
+*.log
+*.tmp
+scratch_*.js
+
+# OS metadata
+.DS_Store
+Thumbs.db
