@@ -1,4 +1,4 @@
-﻿# Dependencies
+# Dependencies
 node_modules/
 .vercel/
 
@@ -11,6 +11,7 @@ node_modules/
 *.log
 *.tmp
 scratch_*.js
+server.js
 
 # OS metadata
 .DS_Store
